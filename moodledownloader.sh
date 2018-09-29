@@ -23,6 +23,13 @@ user=''
 #Disclaimer: Se lo script mette i file in sottocartelle sbagliate generalmente è perchè i prof li hanno caricati nelle cartelle sbagliate
 
 link='informatica.i-learn.unito.it/course/view.php?id='
+
+if [ !$user ]
+	then
+	echo 'Inserisci il tuo nome utente:'
+	read user
+fi
+
 echo 'Inserisci la password di moodle. (Non ti rubo la password, lo script deve entrare su moodle)'
 read -s pass
 
