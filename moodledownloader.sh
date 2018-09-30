@@ -24,7 +24,7 @@ user=''
 
 link='informatica.i-learn.unito.it/course/view.php?id='
 
-if [ !$user ]
+if [ -z $user ]
 	then
 	echo 'Inserisci il tuo nome utente:'
 	read user
