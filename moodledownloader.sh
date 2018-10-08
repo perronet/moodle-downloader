@@ -13,9 +13,6 @@ cartelle=()
 #Username di moodle
 #Esempio: user='mario.coppo'
 user=''
-
-#Se vuoi scaricare anche una copia html della pagina moodle cancella il # dalla riga dopo questa
-#html=true
 ##################################
 
 #Per eventuali bug contattami su telegram @v4lley
@@ -24,19 +21,19 @@ user=''
 
 link='informatica.i-learn.unito.it/course/view.php?id='
 
-if [ -z $user ]
+if [[ -z $user ]]
 	then
 	echo 'Inserisci il tuo nome utente:'
-	read user
+	read -r user
 fi
 
 echo 'Inserisci la password di moodle. (Non ti rubo la password, lo script deve entrare su moodle)'
-read -s pass
+read -s -r pass
 
 #Login
 wget --save-cookies cookies.txt \
 	--keep-session-cookies \
-	--post-data 'username='$user'&password='$pass \
+	--post-data "username=$user&password=$pass" \
 	--delete-after \
 	https://informatica.i-learn.unito.it/login/index.php
 
@@ -45,7 +42,7 @@ for ((i=0;i<${#corsi[@]};i++))
 do
 	#wget su link "/mod/resource", generalmente fanno un redirect su un altro link su cui si trova il file
 	#wget su link "/mod_resource/content/", generalmente link diretti al file
-	#wget su link "/mod/folder/", intere cartelle TODO implementare lo "scarica cartella" per separare le diverse cartelle
+	#wget su link "/mod/folder/", cartelle
 	wget --load-cookies cookies.txt \
 		--recursive \
 		--accept-regex 'informatica.i-learn.unito.it/(mod/resource/.*|mod/folder/.*|.*/mod_resource/content/.*|.*/mod_folder/content/.*)' \
@@ -54,15 +51,13 @@ do
 		--cut-dirs=5 \
 		--content-disposition \
 		--no-clobber \
-		-P './'${cartelle[i]} \
-		$link${corsi[i]}
+		-P "./${cartelle[i]}" \
+		"$link${corsi[i]}"
 
-	if [ $html ]
-		then
-		mv ${cartelle[i]}/view.php?id=${corsi[i]} ${cartelle[i]}/${cartelle[i]}Moodle.html
-	fi
+	#Copia della pagina html
+	mv "${cartelle[i]}/view.php?id=${corsi[i]}" "${cartelle[i]}/${cartelle[i]}Moodle.html"
 done
 
-find -name 'view.php?*' -type f -delete
+find . -name 'view.php?*' -type f -delete
 rm cookies.txt
 echo 'Download completato.'
