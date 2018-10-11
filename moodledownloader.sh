@@ -86,5 +86,6 @@ do
 done
 
 find . -name 'view.php?*' -type f -delete
+find . -name 'index.php' -type f -delete
 rm cookies.txt
 echo 'Download completato.'
