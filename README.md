@@ -3,7 +3,7 @@ Semplice script bash che scarica materiale scolastico da moodle sfruttando il do
 Per ora funziona solo con la pagina Moodle della mia università, abbiamo intenzione di farlo funzionare su tutti i Moodle.
 
 ### Configurazione
-Apri il file di configurazione e segui le istruzioni.
+Scarica tutto, apri il file di configurazione e segui le istruzioni.
 Dopo aver completato la configurazione fai girare lo script con:
 ```
 ./moodledownloader.sh
