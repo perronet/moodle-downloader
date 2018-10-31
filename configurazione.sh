@@ -8,9 +8,7 @@
 #)
 
 corsi=(
-https://informatica.i-learn.unito.it/course/view.php?id=1612
-https://informatica.i-learn.unito.it/course/view.php?id=1576
-https://informatica.i-learn.unito.it/course/view.php?id=1578
+
 )
 
 #Nomi delle cartelle corrispondenti ai link dei corsi
@@ -22,9 +20,7 @@ https://informatica.i-learn.unito.it/course/view.php?id=1578
 #)
 
 cartelle=(
-Reti 
-Prog3 
-IUMTweb
+
 )
 
 #Username di moodle
