@@ -31,7 +31,7 @@ do
 	folders="$(wget --load-cookies cookies.txt \
 	-O - \
 	"${corsi[i]}" \
-	| grep -Po 'http://informatica.i-learn.unito.it/mod/folder/view.php\?id=\d+')"
+	| grep -Po 'https://informatica.i-learn.unito.it/mod/folder/view.php\?id=\d+')"
 
 	#Trova i nomi corretti delle cartelle
 	k=0
@@ -57,7 +57,7 @@ do
 	do
 		wget --load-cookies cookies.txt \
 		--recursive \
-		--accept-regex 'informatica.i-learn.unito.it/.*/mod_folder/content/.*' \
+		--accept-regex 'https://informatica.i-learn.unito.it/.*/mod_folder/content/.*' \
 		-nH \
 		--cut-dirs=5 \
 		--content-disposition \
@@ -71,8 +71,8 @@ do
 	#wget su link "/mod_resource/content/", generalmente link diretti al file
 	wget --load-cookies cookies.txt \
 		--recursive \
-		--accept-regex 'informatica.i-learn.unito.it/(mod/resource/.*|.*/mod_resource/content/.*)' \
-		--reject-regex 'informatica.i-learn.unito.it/mod/resource/.*&lang=.*' \
+		--accept-regex 'https://informatica.i-learn.unito.it/(mod/resource/.*|.*/mod_resource/content/.*)' \
+		--reject-regex 'https://informatica.i-learn.unito.it/mod/resource/.*&lang=.*' \
 		-nH \
 		--cut-dirs=5 \
 		--content-disposition \
@@ -81,7 +81,7 @@ do
 		"${corsi[i]}"
 
 	#Copia della pagina html del corso
-	idcorso="$(echo "${corsi[i]}" | grep -Po 'informatica.i-learn.unito.it/course/view.php\?id=\K\d+')"
+	idcorso="$(echo "${corsi[i]}" | grep -Po 'https://informatica.i-learn.unito.it/course/view.php\?id=\K\d+')"
 	mv "${cartelle[i]}/view.php?id=$idcorso" "${cartelle[i]}/${cartelle[i]}Moodle.html"
 done
 
