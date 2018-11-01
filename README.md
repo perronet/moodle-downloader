@@ -1,15 +1,15 @@
 # moodle-downloader
-Semplice script bash che scarica materiale scolastico da moodle sfruttando il download ricorsivo di wget.
-Per ora funziona solo con la pagina Moodle della mia università, abbiamo intenzione di farlo funzionare su tutti i Moodle.
+Simple bash script that downloads school material from moodle using wget's recursive download.
+For now it only works with my university's Moodle page.
 
-### Configurazione
-Scarica tutto, apri il file di configurazione e segui le istruzioni.
-Dopo aver completato la configurazione fai girare lo script con:
+### Configuration
+Download everything, open the configuration file and follow the instructions.
+After completing the configuration, run the script with:
 ```
 ./moodledownloader.sh
 ```
-Non parte? Prova:
+Doesn't start? Try:
 ```
 chmod +x moodledownloader.sh
 ```
-Dopodichè prova di nuovo ad avviarlo.
+Then try to run it again.
