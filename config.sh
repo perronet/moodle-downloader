@@ -12,6 +12,7 @@ courses=(
 )
 
 #Names of the folders corresponding to the course links 
+#Note: DO NOT USE SPACES IN THE FOLDER'S NAME!
 #Example:
 #coursesfolder=(
 #Reti 
