@@ -25,7 +25,7 @@ wget --save-cookies cookies.txt \
 #Download files for each course
 for ((i=0;i<${#courses[@]};i++))
 do
-	#Dowload folders on the course page
+	#Download folders on the course page
 	#wget on links "/mod/folder/", these pages contain a list of every file in the folder
 	#'folders' contains a link for each folder in the course
 	folders="$(wget --load-cookies cookies.txt \
@@ -66,7 +66,7 @@ do
 		"${folders[k]}"
 	done	
 
-	#Dowload single files outside of the course's folders
+	#Download single files outside of the course's folders
 	#wget on links "/mod/resource", they redirect on another link on which the file is located
 	#wget on links "/mod_resource/content/", direct links to the file
 	wget --load-cookies cookies.txt \
