@@ -1,8 +1,9 @@
 #!/bin/bash
 
-#For any bugs contact me on telegram @v4lley
-#Disclaimer: If the script is slow, it's the connection's fault, especially if you are using our university's connection ;)
-#Disclaimer: If the script puts the files in wrong subfolders it's generally because the professors uploaded them in the wrong folders.
+# For any bugs contact me on telegram @yyyyyherearefiveys
+# Disclaimer: If the script is slow, it's the connection's fault, especially if you are using our university's connection ;)
+# Disclaimer: If the script puts the files in wrong subfolders it's generally because the professors uploaded them in the wrong folders.
+# Disclaimer: If the darn thing doesn't work, it means they changed the website ¯\_(ツ)_/¯
 
 source config.sh
 
